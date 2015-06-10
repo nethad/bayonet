@@ -16,15 +16,14 @@ It's strength lies in the fact that it's able to open bigger Excel files (even w
 workbook = Bayonet::Workbook.new(a_file_path)
 
 workbook.on_sheet('The First Sheet') do |sheet|
-  sheet.set_typed_cell('A1', "I'm a string") # set a cell auto-typed to a string
-  sheet.set_typed_cell('B1', 42)             # set a cell auto-typed to a number
-  sheet.set_cell('C1', "Some value")         # set a cell without setting its type
-  sheet.write_string('D1', "Some value")     # set a cell and forcing it to be a string
-  sheet.write_number('E1', 23)               # set a cell and forcing it to be a number
+  sheet.set_typed_cell('A', 1, "I'm a string") # set a cell auto-typed to a string
+  sheet.set_typed_cell('B', 1, 42)             # set a cell auto-typed to a number
+  sheet.set_cell('C', 1, "Some value")         # set a cell without setting its type
+  sheet.write_string('D', 1, "Some value")     # set a cell and forcing it to be a string
+  sheet.write_number('E', 1, 23)               # set a cell and forcing it to be a number
 end
 
-workbook.write(output_file_path)
-workbook.close
+workbook.write_and_close(output_file_path)
 ```
 
 See the *Tips* section for more information.
