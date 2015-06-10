@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/nethad/bayonet.svg?branch=master)](https://travis-ci.org/nethad/bayonet)
 [![Code Climate](https://codeclimate.com/github/nethad/bayonet/badges/gpa.svg)](https://codeclimate.com/github/nethad/bayonet)
+[![Test Coverage](https://codeclimate.com/github/nethad/bayonet/badges/coverage.svg)](https://codeclimate.com/github/nethad/bayonet/coverage)
 
 Bayonet is a Microsoft Excel write-only gem that reads and produces XLSX files.
 It's strength lies in the fact that it's able to open bigger Excel files (even with macros!) -- and write cells without touching the rest of the Excel file. I've written the gem because *roo* was unbearably slow and was using ~1GB of RAM to read a 5MB XLSX file.
