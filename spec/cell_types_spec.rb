@@ -11,8 +11,7 @@ describe 'cell types' do
     end
 
     Tempfile.open('output.xlsx') do |file|
-      workbook.write(file.path)
-      workbook.close
+      workbook.write_and_close(file.path)
 
       roo_xlsx = Roo::Excelx.new(file.path, :packed => false, :file_warning => :ignore)
 
@@ -27,13 +26,27 @@ describe 'cell types' do
     end
 
     Tempfile.open('output.xlsx') do |file|
-      workbook.write(file.path)
-      workbook.close
+      workbook.write_and_close(file.path)
 
       roo_xlsx = Roo::Excelx.new(file.path, :packed => false, :file_warning => :ignore)
 
       sheet = roo_xlsx.sheet('The Sheep')
       expect(sheet.cell('A', 2)).to eq(42)
+    end
+  end
+
+  it 'writes a number to a cell using the standard write_typed_cell' do
+    workbook.on_sheet('The Sheep') do |sheet|
+      sheet.set_typed_cell('A2', 43)
+    end
+
+    Tempfile.open('output.xlsx') do |file|
+      workbook.write_and_close(file.path)
+
+      roo_xlsx = Roo::Excelx.new(file.path, :packed => false, :file_warning => :ignore)
+
+      sheet = roo_xlsx.sheet('The Sheep')
+      expect(sheet.cell('A', 2)).to eq(43)
     end
   end
 

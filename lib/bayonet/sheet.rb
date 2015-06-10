@@ -40,12 +40,6 @@ module Bayonet
 
     attr_reader :name, :workbook
 
-    def remove_precalculated_value(cell)
-      at_css("c[r=\"#{cell}\"] v").remove
-    end
-
-    private
-
     def id
       @id ||= workbook.xml.at_css("sheets sheet[name=\"#{name}\"]")["r:id"][3..-1]
     end

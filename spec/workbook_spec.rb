@@ -11,8 +11,7 @@ describe Bayonet::Workbook do
     end
 
     Tempfile.open('output.xlsx') do |file|
-      workbook.write(file.path)
-      workbook.close
+      workbook.write_and_close(file.path)
 
       roo_xlsx = Roo::Excelx.new(file.path, :packed => false, :file_warning => :ignore)
 
@@ -28,8 +27,7 @@ describe Bayonet::Workbook do
     end
 
     Tempfile.open('output.xlsx') do |file|
-      workbook.write(file.path)
-      workbook.close
+      workbook.write_and_close(file.path)
 
       roo_xlsx = Roo::Excelx.new(file.path, :packed => false, :file_warning => :ignore)
 
@@ -46,8 +44,7 @@ describe Bayonet::Workbook do
     end
 
     Tempfile.open('output.xlsx') do |file|
-      workbook.write(file.path)
-      workbook.close
+      workbook.write_and_close(file.path)
 
       roo_xlsx = Roo::Excelx.new(file.path, :packed => false, :file_warning => :ignore)
 
@@ -69,8 +66,7 @@ describe Bayonet::Workbook do
       end
 
       Tempfile.open('output.xlsx') do |file|
-        workbook.write(file.path)
-        workbook.close
+        workbook.write_and_close(file.path)
 
         roo_xlsx = Roo::Excelx.new(file.path, :packed => false, :file_warning => :ignore)
 
@@ -91,8 +87,7 @@ describe Bayonet::Workbook do
       end
 
       Tempfile.open('output.xlsx') do |file|
-        workbook.write(file.path)
-        workbook.close
+        workbook.write_and_close(file.path)
 
         roo_xlsx = Roo::Excelx.new(file.path, :packed => false, :file_warning => :ignore)
 
@@ -114,8 +109,7 @@ describe Bayonet::Workbook do
       end
 
       Tempfile.open('output.xlsx') do |file|
-        workbook.write(file.path)
-        workbook.close
+        workbook.write_and_close(file.path)
 
         roo_xlsx = Roo::Excelx.new(file.path, :packed => false, :file_warning => :ignore)
 
