@@ -47,16 +47,17 @@ module Bayonet
     end
 
     def create_cell_node
-      Nokogiri::XML::Node.new('c', row_node).tap do |cell_node|
-        cell_node['r'] = cell
-        row_node.add_child(cell_node)
-      end
+      create_node('c', row_node, cell)
     end
 
     def create_row_node
-      Nokogiri::XML::Node.new('row', sheet_data_node).tap do |row_node|
-        row_node['r'] = row_number
-        sheet_data_node.add_child(row_node)
+      create_node('row', sheet_data_node, row_number)
+    end
+
+    def create_node(tag, parent_node, value)
+      Nokogiri::XML::Node.new(tag, parent_node).tap do |node|
+        node['r'] = value
+        parent_node.add_child(node)
       end
     end
 
