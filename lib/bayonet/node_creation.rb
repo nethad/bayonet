@@ -1,11 +1,11 @@
 module Bayonet
   class NodeCreation
 
-    attr_reader :cell, :sheet
+    attr_reader :cell_label, :sheet
 
-    def initialize(cell, sheet)
-      @cell  = cell
-      @sheet = sheet
+    def initialize(cell_label, sheet)
+      @cell_label = cell_label
+      @sheet      = sheet
     end
 
     def get_or_create_cell_node
@@ -23,7 +23,7 @@ module Bayonet
     end
 
     def cell_node
-      @cell_node ||= xml.at_css("c[r=\"#{cell}\"]")
+      @cell_node ||= xml.at_css("c[r=\"#{cell_label}\"]")
     end
 
     def has_cell_node?
@@ -39,7 +39,7 @@ module Bayonet
     end
 
     def row_number
-      @row_number ||= cell.gsub(/[^\d]/, '')
+      @row_number ||= cell_label.gsub(/[^\d]/, '')
     end
 
     def sheet_data_node
@@ -47,7 +47,7 @@ module Bayonet
     end
 
     def create_cell_node
-      create_node('c', row_node, cell)
+      create_node('c', row_node, cell_label)
     end
 
     def create_row_node

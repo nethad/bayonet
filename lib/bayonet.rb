@@ -1,3 +1,4 @@
+require "bayonet/cell"
 require "bayonet/node_creation"
 require "bayonet/sheet"
 require "bayonet/version"

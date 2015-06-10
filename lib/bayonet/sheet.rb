@@ -14,25 +14,25 @@ module Bayonet
       @xml ||= read_and_parse_xml
     end
 
-    def write_string(cell, value)
-      set_cell(cell, value.to_s, :str)
+    def write_string(cell_row, cell_column, value)
+      set_cell(cell_row, cell_column, value.to_s, :str)
     end
 
-    def write_number(cell, value)
-      set_cell(cell, value, :n)
+    def write_number(cell_row, cell_column, value)
+      set_cell(cell_row, cell_column, value, :n)
     end
 
-    def set_cell(cell, value, type = nil)
-      cell_node = get_or_create_cell_node(cell)
+    def set_cell(cell_row, cell_column, value, type = nil)
+      cell_node = get_or_create_cell_node(Cell.new(cell_row, cell_column))
       cell_node['t'] = type unless type.nil?
       set_value(cell_node, value)
     end
 
-    def set_typed_cell(cell, value)
+    def set_typed_cell(cell_row, cell_column, value)
       if (value.is_a?(Numeric))
-        write_number(cell, value)
+        write_number(cell_row, cell_column, value)
       else
-        write_string(cell, value)
+        write_string(cell_row, cell_column, value)
       end
     end
 
@@ -50,7 +50,7 @@ module Bayonet
     end
 
     def get_or_create_cell_node(cell)
-      Bayonet::NodeCreation.new(cell, self).get_or_create_cell_node
+      Bayonet::NodeCreation.new(cell.label, self).get_or_create_cell_node
     end
 
     def set_value(cell_node, value)

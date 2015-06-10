@@ -7,7 +7,7 @@ describe 'cell types' do
 
   it 'writes a string to a cell' do
     workbook.on_sheet('The Sheep') do |sheet|
-      sheet.write_string('A1', 'Yay')
+      sheet.write_string('A', 1, 'Yay')
     end
 
     Tempfile.open('output.xlsx') do |file|
@@ -22,7 +22,7 @@ describe 'cell types' do
 
   it 'writes a number to a cell' do
     workbook.on_sheet('The Sheep') do |sheet|
-      sheet.write_number('A2', 42)
+      sheet.write_number('A', 2, 42)
     end
 
     Tempfile.open('output.xlsx') do |file|
@@ -37,7 +37,7 @@ describe 'cell types' do
 
   it 'writes a number to a cell using the standard write_typed_cell' do
     workbook.on_sheet('The Sheep') do |sheet|
-      sheet.set_typed_cell('A2', 43)
+      sheet.set_typed_cell('A', 2, 43)
     end
 
     Tempfile.open('output.xlsx') do |file|
