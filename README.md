@@ -55,5 +55,5 @@ Normally you should use `set_typed_cell`, which sets the cell type correctly and
 
 #### Why can't I read cells?
 
-It's simply not been implemented yet. I've been writing to template files with pre-defined cells to fill, so reading cells was not necessary. It shouldn't be hard to implemented, though there might be some edge cases I haven't considered yet, that's why I left it out for now. Pull requests are welcome, otherwise I'd suggest to use other gems for that.
+It's simply not been implemented yet. I've been writing to template files with pre-defined cells to fill, so reading cells was not necessary. It shouldn't be hard to implement, though there might be some edge cases I haven't considered yet, that's why I left it out for now. Pull requests are welcome, otherwise I'd suggest to use other gems for that.
 
