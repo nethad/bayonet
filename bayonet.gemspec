@@ -9,10 +9,6 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Thomas Ritter"]
   spec.email         = ["ritter.thomas@gmail.com"]
 
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
-  end
-
   spec.summary       = %q{Bayonet is a Microsoft Excel write-only gem that reads and produces XLSX files.}
   spec.description   = %q{Bayonet is a Microsoft Excel write-only gem that reads and produces XLSX files. It's strength lies in the fact that it's able to open bigger Excel files (even with macros!) -- and write cells without touching the rest of the Excel file.}
   spec.homepage      = "https://github.com/nethad/bayonet"
